@@ -598,17 +598,19 @@ jQuery(document).ready(function($) {
                   "      bounds: geojson_layer.getBounds()\n" +
                   "    }).addTo(map);\n" +
                   "    res_ds_layers[tile_layers[i]] = res_ds_layer;\n" +
-                  "    L.tileLayer(prodUrl + '/tiles/{ds}/{z}/{x}/{y}.png', {\n" +
-                  "      ds: tile_layers[i],\n" +
-                  "      opacity: .6,\n" +
-                  "      minZoom: 0,\n" +
-                  "      maxZoom: 18,\n" +
-                  "      maxNativeZoom: 8,\n" +
-                  "      reuseTiles: true,\n" +
-                  "      tms: true,\n" +
-                  "      noWrap: true,\n" +
-                  "      bounds: geojson_layer.getBounds()\n" +
-                  "    }).addTo(prodLayer);\n" +
+                  "    if (tile_layers[i] == 'displacement') {\n" +
+                  "      L.tileLayer(prodUrl + '/tiles/{ds}/{z}/{x}/{y}.png', {\n" +
+                  "        ds: tile_layers[i],\n" +
+                  "        opacity: .6,\n" +
+                  "        minZoom: 0,\n" +
+                  "        maxZoom: 18,\n" +
+                  "        maxNativeZoom: 8,\n" +
+                  "        reuseTiles: true,\n" +
+                  "        tms: true,\n" +
+                  "        noWrap: true,\n" +
+                  "        bounds: geojson_layer.getBounds()\n" +
+                  "      }).addTo(prodLayer);\n" +
+                  "    }\n" +
                   "  }\n" +
                   "  L.control.layers(res_ds_layers).addTo(map);\n" +
                   "}\n"
