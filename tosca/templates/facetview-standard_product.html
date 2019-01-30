@@ -677,7 +677,7 @@ jQuery(document).ready(function($) {
                   "      bounds: geojson_layer.getBounds()\n" +
                   "    }).addTo(map);\n" +
                   "    res_ds_layers[tile_layers[i]] = res_ds_layer;\n" +
-                  "    if (tile_layers[i] == 'displacement') {\n" +
+                  "    if (tile_layers[i] == 'interferogram') {\n" +
                   "      L.tileLayer(prodUrl + '/tiles/{ds}/{z}/{x}/{y}.png', {\n" +
                   "        ds: tile_layers[i],\n" +
                   "        opacity: .6,\n" +
