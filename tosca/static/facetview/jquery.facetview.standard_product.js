@@ -695,9 +695,11 @@ search box - the end user will not know they are happening.
                 slide: function( event, ui ) {
                     if ($.inArray(field_name, options.time_fields) != -1) {
                         var dt_1 = new Date(parseInt(values[ui.values[0]]));
-                        var dt_1_str = parseInt(dt_1.toISOString().substring(0,4)) + "-" + dt_1.toISOString().substring(5,7) + "-" +  dt_1.toISOString().substring(8,10);
+                        //var dt_1_str = parseInt(dt_1.toISOString().substring(0,4)) + "-" + dt_1.toISOString().substring(5,7) + "-" +  dt_1.toISOString().substring(8,10);
+                        var dt_1_str = dt_1.toISOString().substring(0,10);
                         var dt_2 = new Date(parseInt(values[ui.values[1]]));
-                        var dt_2_str = parseInt(dt_2.toISOString().substring(0,4)) + "-" + dt_2.toISOString().substring(5,7) + "-" +  dt_2.toISOString().substring(8,10);
+                        //var dt_2_str = parseInt(dt_2.toISOString().substring(0,4)) + "-" + dt_2.toISOString().substring(5,7) + "-" +  dt_2.toISOString().substring(8,10);
+                        var dt_2_str = dt_2.toISOString().substring(0,10);
                         $('#facetview_rangechoices_' + rel + ' .facetview_lowrangeval_' + rel, obj).html( dt_1_str );
                         $('#facetview_rangechoices_' + rel + ' .facetview_highrangeval_' + rel, obj).html( dt_2_str );
                     }else {
@@ -1224,9 +1226,13 @@ search box - the end user will not know they are happening.
                     if ($.inArray(field_name, options.time_fields) != -1) {
                         var parts_1 = $('.facetview_lowrangeval_' + $(this).attr('rel'), this).html().split(" ");
                         var parts_2 = $('.facetview_highrangeval_' + $(this).attr('rel'), this).html().split(" ");
-                        var dt_1 = new Date(parseInt(parts_1[0]), $.inArray(parts_1[1], MONTHS)-1, 1);
+                        //var dt_1 = new Date(parseInt(parts_1[0]), $.inArray(parts_1[1], MONTHS)-1, 1);
+                        //var dt_1_str = dt_1.toISOString().substring(0,10) + 'T00:00:00Z';
+                        //var dt_2 = new Date(parseInt(parts_2[0]), $.inArray(parts_2[1], MONTHS), 0); // get last day
+                        //var dt_2_str = dt_2.toISOString().substring(0,10) + 'T23:59:59Z';
+                        var dt_1 = new Date(parts_1)
+                        var dt_2 = new Date(parts_2)
                         var dt_1_str = dt_1.toISOString().substring(0,10) + 'T00:00:00Z';
-                        var dt_2 = new Date(parseInt(parts_2[0]), $.inArray(parts_2[1], MONTHS), 0); // get last day
                         var dt_2_str = dt_2.toISOString().substring(0,10) + 'T23:59:59Z';
                         var rngs = {
                             'from': dt_1_str,
