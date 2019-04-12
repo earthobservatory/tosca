@@ -1104,6 +1104,10 @@ search box - the end user will not know they are happening.
                         <li class="active"><a>{{from}} &ndash; {{to}} of {{total}}</a></li> \
                         <li class="next"><a class="btn facetview_increment" href="{{to}}">next &raquo;</a></li> \
                     </ul> \
+                    <ul> \
+                        <li><a href="" target="_blank" id="wget_script" class="btn hidden" data-toggle="tooltip" title="Download WGET script for manual download your search results">WGET Script</a></li> \
+			            <li><a class="btn btn-success" target="_blank" id="download_wget" class="btn btn-success" data-toggle-"tooltip" title="Download WGET">Download All (wget)</a></li> \
+                    </ul> \
                 </div>';
             };
             $('.facetview_metadata', obj).first().html("Not found...");
@@ -1147,9 +1151,9 @@ search box - the end user will not know they are happening.
             $('.facetview_viewrecord', obj).bind('click',viewrecord);
             jQuery('.notify_loading').hide();
 
-            // set wget
-            $('#download_wget').attr('href', options.search_url.replace('/query', '/services/wget') + 'base64=' + btoa(options.querystring));
-            
+            // set wget href
+            //$('#wget_script').attr('href', options.search_url.replace('/query', '/wget_script') + "source=" + QUERY_STRING);
+
             $('#download_wget').on('click', function() {
                     $('#download_modal_label').text("Download");
                     $('#download_modal').modal('show').css({
@@ -1160,6 +1164,10 @@ search box - the end user will not know they are happening.
                     return false;
                 });
 
+            $('#download_wget').attr({
+                target: '_blank',
+                href: "wget_all/" + btoa(options.querystring)
+            });
 
             // create rule
             $('a[name="create_rule"]').on('click', function() {
