@@ -2,7 +2,6 @@ import os, json, requests, base64, io
 from collections import OrderedDict
 from flask import jsonify, Blueprint, request, url_for, Response, render_template, make_response
 from flask_login import login_required
-from flask_cors import CORS, cross_origin
 from pprint import pformat
 from datetime import datetime
 
@@ -122,7 +121,6 @@ def pull_all_data_sets(es_url, query):
 
 
 @mod.route('/wget_all/<dataset>', methods=['GET'])
-@cross_origin(origin='*')
 @login_required
 def get_wget_all(dataset):
     """Return wget for dataset."""

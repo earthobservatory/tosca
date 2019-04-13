@@ -1154,7 +1154,7 @@ search box - the end user will not know they are happening.
             // set wget href
             //$('#wget_script').attr('href', options.search_url.replace('/query', '/wget_script') + "source=" + QUERY_STRING);
 
-            $('#download_wget').on('click', function() {
+            /*$('#download_wget').on('click', function() {
                     $('#download_modal_label').text("Download");
                     $('#download_modal').modal('show').css({
                       'left': function() {
@@ -1162,7 +1162,7 @@ search box - the end user will not know they are happening.
                       }
                     });
                     return false;
-                });
+                });*/
 
             $('#download_wget').attr({
                 target: '_blank',
