@@ -143,6 +143,10 @@ def get_wget_all(dataset):
     f = io.BytesIO()
     f.write('# !/bin/bash\n'.encode('utf-8'))
     f.write('#\n'.encode('utf-8'))
+    f.write('# for each wget command to automatically use your NASA URS credentials, create a “~/.netrc” file containing:\n'.encode('utf-8'))
+    f.write('# machine urs.earthdata.nasa.gov login <mylogin> password <mypassword>\n'.encode('utf-8'))
+    f.write('#\n'.encode('utf-8'))
+    f.write('#\n'.encode('utf-8'))
     f.write('# download script generated from query:\n'.encode('utf-8'))
     f.write(('# ' + json.dumps(source) + '\n').encode('utf-8'))
 
