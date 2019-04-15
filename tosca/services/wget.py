@@ -137,7 +137,7 @@ def get_wget_all(dataset):
         }), 500
 
     es_url_base = app.config['ES_URL']
-    index = 'grq_v2.0.1_s1-gunw'
+    index = 'grq_v2.0.1_s1-gunw-released'
     es_url = "%s/%s/_search" % (es_url_base, index)
 
     f = io.BytesIO()
