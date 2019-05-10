@@ -1679,7 +1679,7 @@ search box - the end user will not know they are happening.
 
             //create the satellitemap control
             if (satMapControl === null) {
-            satMapControl = L.control({position: 'topright'});
+            satMapControl = L.control({position: 'bottomright'});
               satMapControl.onAdd = function (map) {
                 var div = L.DomUtil.create('div', 'satmapDiv');
                 div.innerHTML = '<form><label class="checkbox"><input id="satmap_base" type="checkbox" />satmap</label></form>';
