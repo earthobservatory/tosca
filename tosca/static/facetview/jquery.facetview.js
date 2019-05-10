@@ -29,6 +29,7 @@ var updatePolygonShape = null;
 var updatePolygonTextarea = null;
 var polyCoords = null;
 var withinControl = null;
+var satMapControl = null;
 var polygonWithin = false;
               
 
@@ -1659,9 +1660,9 @@ search box - the end user will not know they are happening.
             }).setView([0,0], 1);
 
             var osm = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 }),
-            satview = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 18 });
+            // satview = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 18 });
             osm.addTo(location_search_map)
-            var baseMaps = {"OSM": osm, "WorldView": satview};
+            var baseMaps = {"OSM": osm};
 
             // create the within control
             if (withinControl === null) {
@@ -1674,9 +1675,33 @@ search box - the end user will not know they are happening.
             }
             withinControl.addTo(location_search_map);
 
-            // add listener for change of within checkbox
+             // add listener for change of within checkbox
             $( "#within_relation" ).bind("change", function() {
               //console.log("within_relation changed");
+              dosearch();
+            });
+
+            //create the satellitemap control
+            if (satMapControl === null) {
+            satMapControl = L.control({position: 'topright'});
+              satMapControl.onAdd = function (map) {
+                var div = L.DomUtil.create('div', 'satmapDiv');
+                div.innerHTML = '<form><label class="checkbox"><input id="satmap_base" type="checkbox" />satmap</label></form>';
+                return div;
+              };
+            }
+
+             // add listener for change of within checkbox
+            $( "#satmap_base" ).bind("change", function() {
+              //console.log("satmap changed");
+             // within - Return all documents whose geo_shape field is within the query geometry
+             var is_satmap = $('#satmap_base').prop('checked');
+             if (is_satmap) {
+              osm = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 18 });
+              }
+             else {
+              osm = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 }),
+              }
               dosearch();
             });
         
