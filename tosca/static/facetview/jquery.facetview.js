@@ -1453,8 +1453,8 @@ search box - the end user will not know they are happening.
 
         // execute a search
         var dosearch = function() {
-            zoomlvl = null
-            if (location_search_map != null) zoomlvl = location_search_map.getZoom();
+//            zoomlvl = null
+//            if (location_search_map != null) zoomlvl = location_search_map.getZoom();
 
             jQuery('.notify_loading').show();
             // update the options with the latest q value
@@ -1497,7 +1497,7 @@ search box - the end user will not know they are happening.
                   return true;
                 }
             });
-            if (location_search_map != null && zoomlvl != null) location_search_map.setZoom(zoomlvl);
+//            if (location_search_map != null && zoomlvl != null) location_search_map.setZoom(zoomlvl);
         };
 
         // show search help
@@ -1663,7 +1663,7 @@ search box - the end user will not know they are happening.
                 worldCopyJump: true
             }).setView([0,0], 1);
             var baseLayer = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 });
-            baseLayer.addTo(map)
+            baseLayer.addTo(location_search_map);
 
             // create the within control
             if (withinControl === null) {
