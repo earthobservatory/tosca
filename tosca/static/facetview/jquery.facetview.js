@@ -1659,9 +1659,9 @@ search box - the end user will not know they are happening.
                 worldCopyJump: true
             }).setView([0,0], 1);
 
-            var osm = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 }),
+            var osm = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 })
             // satview = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 18 });
-            osm.addTo(location_search_map)
+            osm.addTo(location_search_map);
             var baseMaps = {"OSM": osm};
 
             // create the within control
