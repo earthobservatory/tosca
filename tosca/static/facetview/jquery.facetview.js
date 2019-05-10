@@ -1662,6 +1662,7 @@ search box - the end user will not know they are happening.
             satview = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 18 });
             osm.addTo(location_search_map)
             var baseMaps = {"OSM": osm, "WorldView": satview};
+            L.control.layers(baseMaps).addTo(location_search_map);
 
             // create the within control
             if (withinControl === null) {
@@ -1681,12 +1682,11 @@ search box - the end user will not know they are happening.
             });
         
             // create product layer
-            prodLayer = L.layerGroup().addTo(location_search_map);
+            prodLayer = L.layerGroup()
             prodLayer.setZIndex(5)
-            var prodOverlayMaps = {"Products": prodLayer};
+            prodLayer.addTo(location_search_map);
 
-            L.control.layers(baseMaps, prodOverlayMaps).addTo(location_search_map);
-        
+
             // create feature group to hold shapes
             drawnItems = new L.FeatureGroup();
             location_search_map.addLayer(drawnItems);
