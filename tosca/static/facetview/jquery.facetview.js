@@ -1690,6 +1690,7 @@ search box - the end user will not know they are happening.
                 return div;
               };
             }
+            satMapControl.addTo(location_search_map);
 
              // add listener for change of within checkbox
             $( "#satmap_base" ).bind("change", function() {
