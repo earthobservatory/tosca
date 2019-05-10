@@ -1699,16 +1699,14 @@ search box - the end user will not know they are happening.
              // within - Return all documents whose geo_shape field is within the query geometry
              var is_satmap = $('#satmap_base').prop('checked');
              if (is_satmap) {
-              //location_search_map.removeLayer(baseLayer)
+              location_search_map.removeLayer(baseLayer)
               baseLayer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 18 });
-              baseLayer.redraw();
-              //baseLayer.addTo(location_search_map);
+              baseLayer.addTo(location_search_map);
               }
              else {
-              //location_search_map.removeLayer(baseLayer)
+              location_search_map.removeLayer(baseLayer)
               baseLayer = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(location_search_map);
-              baseLayer.redraw();
-              //baseLayer.addTo(location_search_map);
+              baseLayer.addTo(location_search_map);
               }
               dosearch();
             });
