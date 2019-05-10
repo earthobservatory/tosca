@@ -1662,7 +1662,8 @@ search box - the end user will not know they are happening.
             location_search_map = L.map('location_search_map', {
                 worldCopyJump: true
             }).setView([0,0], 1);
-            L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(location_search_map);
+            var baseLayer = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 });
+            baseLayer.addTo(map)
 
             // create the within control
             if (withinControl === null) {
@@ -1698,10 +1699,16 @@ search box - the end user will not know they are happening.
              // within - Return all documents whose geo_shape field is within the query geometry
              var is_satmap = $('#satmap_base').prop('checked');
              if (is_satmap) {
-              L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 18 }).addTo(location_search_map);
+              //location_search_map.removeLayer(baseLayer)
+              baseLayer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 18 });
+              baseLayer.redraw();
+              //baseLayer.addTo(location_search_map);
               }
              else {
-              L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(location_search_map);
+              //location_search_map.removeLayer(baseLayer)
+              baseLayer = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(location_search_map);
+              baseLayer.redraw();
+              //baseLayer.addTo(location_search_map);
               }
               dosearch();
             });
