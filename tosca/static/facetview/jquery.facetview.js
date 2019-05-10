@@ -1683,7 +1683,7 @@ search box - the end user will not know they are happening.
         
             // create product layer
             prodLayer = L.layerGroup()
-            prodLayer.setZIndex(5)
+            prodLayer.setZIndex(20)
             prodLayer.addTo(location_search_map);
 
 
