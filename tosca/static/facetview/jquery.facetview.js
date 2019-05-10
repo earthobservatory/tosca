@@ -1682,6 +1682,7 @@ search box - the end user will not know they are happening.
         
             // create product layer
             prodLayer = L.layerGroup().addTo(location_search_map);
+            prodLayer.setZIndex(5)
             var prodOverlayMaps = {"Products": prodLayer};
 
             L.control.layers(baseMaps, prodOverlayMaps).addTo(location_search_map);
