@@ -1453,6 +1453,7 @@ search box - the end user will not know they are happening.
 
         // execute a search
         var dosearch = function() {
+            zoomlvl = location_search_map.getZoom()
             jQuery('.notify_loading').show();
             // update the options with the latest q value
             if ( options.searchbox_class.length == 0 ) {
@@ -1494,6 +1495,7 @@ search box - the end user will not know they are happening.
                   return true;
                 }
             });
+            location_search_map.setZoom(zoomlvl)
         };
 
         // show search help
@@ -1682,7 +1684,7 @@ search box - the end user will not know they are happening.
             satMapControl = L.control({position: 'bottomright'});
               satMapControl.onAdd = function (map) {
                 var div = L.DomUtil.create('div', 'satmapDiv');
-                div.innerHTML = '<form><label class="checkbox"><input id="satmap_base" type="checkbox" />satmap</label></form>';
+                div.innerHTML = '<form><label class="checkbox"><input id="satmap_base" type="checkbox" />SATELLITE</label></form>';
                 return div;
               };
             }
