@@ -1661,8 +1661,9 @@ search box - the end user will not know they are happening.
             var osm = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 }),
             satview = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 18 });
             osm.addTo(location_search_map)
+            satview.addTo(location_search_map)
+
             var baseMaps = {"OSM": osm, "WorldView": satview};
-            L.control.layers(baseMaps).addTo(location_search_map);
 
             // create the within control
             if (withinControl === null) {
@@ -1686,6 +1687,7 @@ search box - the end user will not know they are happening.
             prodLayer.setZIndex(20)
             prodLayer.addTo(location_search_map);
 
+            L.control.layers(baseMaps, {autoZIndex:true}).addTo(location_search_map);
 
             // create feature group to hold shapes
             drawnItems = new L.FeatureGroup();
