@@ -1662,7 +1662,8 @@ search box - the end user will not know they are happening.
             location_search_map = L.map('location_search_map', {
                 worldCopyJump: true
             }).setView([0,0], 1);
-            var baseLayer = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 });
+            var baseLayer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+                maxZoom: 18 });
             baseLayer.addTo(location_search_map);
 
             // create the within control
@@ -1705,7 +1706,7 @@ search box - the end user will not know they are happening.
               }
              else {
               location_search_map.removeLayer(baseLayer)
-              baseLayer = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(location_search_map);
+              baseLayer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 18 }).addTo(location_search_map);
               baseLayer.addTo(location_search_map);
               }
               dosearch();
