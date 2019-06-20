@@ -614,7 +614,7 @@ def monitor_job():
         })
     
     # get Mozart link to job
-    moz_url = '%s/?source={"query":{"query_string":{"query":"task_id:%s"}}}' % (app.config['MOZART_URL'], task_id)
+    moz_url = '%s/?source={"query":{"query_string":{"query":"task_id:%s"}}}' % (app.config['FIGARO_URL'], task_id)
 
     # hand craft redirect so that { and } chars are not escaped
     return redirect(moz_url)
@@ -645,4 +645,4 @@ def monitor_jobs():
     moz_url = '%s/?source={"query":{"bool":{"must":[{"term":{"job.job.tag":"%s"}},{"term":{"job.job.username":"%s"}}]}}}'
 
     # hand craft redirect so that { and } chars are not escaped
-    return redirect(moz_url % (app.config['MOZART_URL'], tag, username))
+    return redirect(moz_url % (app.config['FIGARO_URL'], tag, username))
