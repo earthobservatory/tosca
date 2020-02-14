@@ -1903,7 +1903,7 @@ ul.articles, .gallery_list {
     @media (min-width: 1024px) {
       /* line 78, /Users/justin/Git_projects/projects/middleman/jpl-website/source/assets/stylesheets/partials/_header.scss */
       .site_header .brand_area {
-        width: 362px;
+        width: 500px;
         height: 68px; } }
     /* line 102, /Users/justin/Git_projects/projects/middleman/jpl-website/source/assets/stylesheets/partials/_header.scss */
     .site_header .brand_area .brand1 {
@@ -1934,7 +1934,7 @@ ul.articles, .gallery_list {
 
 /* line 147, /Users/justin/Git_projects/projects/middleman/jpl-website/source/assets/stylesheets/partials/_header.scss */
 .light_background .site_header .brand_area, .fixed .site_header .brand_area {
-  background: url("../images/logo_nasa_trio_black@2x.png") no-repeat;
+  background: url("../images/EOS_Logo_Resized.png") no-repeat;
   background-size: 100%; }
 /* line 151, /Users/justin/Git_projects/projects/middleman/jpl-website/source/assets/stylesheets/partials/_header.scss */
 .light_background .site_header .search_field, .light_background .site_header form.submit_newsletter .email_field, form.submit_newsletter .light_background .site_header .email_field, .fixed .site_header .search_field, .fixed .site_header form.submit_newsletter .email_field, form.submit_newsletter .fixed .site_header .email_field {
